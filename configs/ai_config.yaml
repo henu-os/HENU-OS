@@ -1,0 +1,41 @@
+# HENU OS 3.0 — AI Runtime Configuration
+# File: configs/ai_config.yaml
+# Purpose: Define offline AI stack components, model weights paths,
+#          runtime backends, GPU flags, and VRAM thresholds.
+# Used by: component_deployer.py (Sprint 5), ai_config.schema.json (validation)
+
+ai:
+  enabled: false                       # Set to true in Sprint 5.
+  runtime_backend: "llama.cpp"         # llama.cpp | whisper | ollama
+
+  # Minimum GPU VRAM required for inference (GB).
+  min_vram_gb: 4
+
+  # CPU-only fallback when GPU VRAM is insufficient.
+  allow_cpu_fallback: true
+
+  # Offline model weights.
+  # Paths are relative to workspace root.
+  models:
+    llm:
+      name: "HENU-LLM-7B"
+      path: "assets/models/llm/henu-7b.gguf"
+      format: "gguf"
+      quantization: "Q4_K_M"
+    speech:
+      name: "Whisper-Small"
+      path: "assets/models/whisper/small.bin"
+      format: "bin"
+    vision:
+      enabled: false
+      path: ""
+
+  # System prompt and context window.
+  context_window: 4096
+  system_prompt: "You are HENU Assistant, a helpful AI for HENU OS."
+
+  # AI packages to install (added to package_config.yaml groups).
+  packages:
+    - python3-pip
+    - python3-numpy
+    - python3-transformers

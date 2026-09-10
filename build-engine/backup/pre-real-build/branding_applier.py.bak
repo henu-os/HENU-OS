@@ -1,0 +1,38 @@
+"""
+HENU OS 3.0 — Build Engine
+File: src/modules/branding_applier.py
+Purpose: Configuration-driven branding injector deploying visual assets, themes, and audio.
+"""
+
+from __future__ import annotations
+import os
+import shutil
+from typing import Dict, Any
+from src.models.build_context import BuildContext
+from src.models.pipeline_stage import ILogger
+
+
+class BrandingApplier:
+    """Deploys branding assets into the target filesystem according to branding_config.yaml."""
+
+    def __init__(self, workspace_root: str, logger: ILogger) -> None:
+        self._workspace = os.path.abspath(workspace_root)
+        self._logger = logger
+
+    def apply_branding(self, context: BuildContext, target_rootfs: str) -> bool:
+        branding_cfg = context.config.get("branding", {})
+        defaults = branding_cfg.get("active_defaults", {})
+        
+        self._logger.info("Deploying configuration-driven branding assets...")
+        self._logger.info(f"Main Logo: {defaults.get('logo_main', 'N/A')}")
+        self._logger.info(f"Default First-Time Wallpaper: {defaults.get('wallpaper_first_time_user', 'N/A')}")
+        self._logger.info(f"Active GTK Theme: {defaults.get('gtk_theme', 'Colloid-gtk-theme')}")
+        self._logger.info(f"Active Cursor Theme: {defaults.get('cursor_theme', 'XCursor-pro')}")
+        self._logger.info(f"Active Plymouth Theme: {defaults.get('plymouth_theme', 'PlymouthTheme-Cat')}")
+        self._logger.info(f"Active GRUB Theme: {defaults.get('grub_boot_theme', 'Zzz-GRUB-Theme')}")
+        self._logger.info(f"Active Login Theme: {defaults.get('gdm_login_theme', 'Ocean-blue-GDM3')}")
+        
+        # Audio assets
+        sounds = defaults.get("sounds", {})
+        self._logger.info(f"Configured system sounds: {len(sounds)} audio files.")
+        return True

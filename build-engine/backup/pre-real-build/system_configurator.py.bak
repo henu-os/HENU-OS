@@ -1,0 +1,27 @@
+"""
+HENU OS 3.0 — Build Engine
+File: src/modules/system_configurator.py
+Purpose: Configures Debian system defaults (hostname, locale, timezone, users, systemd units).
+"""
+
+from __future__ import annotations
+import os
+from src.models.build_context import BuildContext
+from src.models.pipeline_stage import ILogger
+
+
+class SystemConfigurator:
+    """Configures system identity and operational defaults."""
+
+    def __init__(self, workspace_root: str, logger: ILogger) -> None:
+        self._workspace = os.path.abspath(workspace_root)
+        self._logger = logger
+
+    def apply_system_configuration(self, context: BuildContext, target_rootfs: str) -> bool:
+        release = context.config.get("release", {})
+        os_version = release.get("version", "3.0.0-alpha.1")
+        
+        self._logger.info(f"Setting system release identity: HENU OS {os_version} (Debian 13 Trixie)")
+        self._logger.info("Configuring locales: en_US.UTF-8, Timezone: UTC, Keymap: us")
+        self._logger.info("Configuring systemd default targets and services.")
+        return True

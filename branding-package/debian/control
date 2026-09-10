@@ -1,0 +1,18 @@
+Source: henu-branding
+Section: misc
+Priority: optional
+Maintainer: HENU OS Core Team <dev@henu-os.org>
+Build-Depends: debhelper-compat (= 13)
+Standards-Version: 4.6.2
+Homepage: https://github.com/henu-os/henu-branding
+
+Package: henu-branding
+Architecture: all
+Depends: ${misc:Depends}, plymouth, grub-common, gdm3
+Description: Official system visual identity and themes for HENU OS 3.0
+ This package contains the official branding assets for HENU OS 3.0, including:
+  * Desktop wallpapers and lockscreen layouts
+  * Plymouth boot animation themes
+  * GRUB bootloader themes
+  * Custom application and system icons
+  * System notification and startup audio

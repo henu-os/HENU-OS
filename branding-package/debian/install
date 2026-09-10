@@ -1,0 +1,5 @@
+wallpapers/* usr/share/backgrounds/henu/
+plymouth/* usr/share/plymouth/themes/henu/
+grub/* boot/grub/themes/henu/
+icons/* usr/share/icons/henu/
+fonts/* usr/share/fonts/henu/

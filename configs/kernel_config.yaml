@@ -1,0 +1,41 @@
+# HENU OS 3.0 — Kernel Configuration
+# File: configs/kernel_config.yaml
+# Purpose: Define kernel packages, initramfs generators, parameters, and future custom build options.
+
+kernel:
+  strategy: "debian_package" # "debian_package" (default) | "custom_compiled"
+
+  # Official Debian Kernel Packages
+  debian:
+    image_package: "linux-image-amd64"
+    headers_package: "linux-headers-amd64"
+    initramfs_generator: "initramfs-tools"
+    include_extra_modules: true
+
+  # Boot Parameters (Passed to GRUB / live-build)
+  boot_parameters:
+    - "quiet"
+    - "splash"
+    - "boot=live"
+    - "components"
+    - "locales=en_US.UTF-8"
+    - "timezone=UTC"
+
+  # Hardware Enablement
+  hardware:
+    enable_microcode_amd: true
+    enable_microcode_intel: true
+    firmware_packages:
+      - "amd64-microcode"
+      - "intel-microcode"
+      - "firmware-linux-free"
+      - "firmware-linux-nonfree"
+
+  # Custom Kernel Build Strategy (for future custom kernel sprints)
+  custom_build:
+    enabled: false
+    source_tarball: ""
+    config_file: "kernel/config/henu-default.config"
+    patches_dir: "kernel/patches"
+    modules_dir: "kernel/modules"
+    build_script: "kernel/scripts/build_kernel.sh"

@@ -1,0 +1,35 @@
+{
+  "build_id": "henu-1788981169",
+  "build_profile": "development",
+  "git_commit": "",
+  "config_hash": "37188f2ced897654c5c2187665841d59",
+  "start_time": 1788981169.1970832,
+  "elapsed_seconds": 0.13,
+  "stages_completed": [
+    "Read Configuration",
+    "Validate Configuration",
+    "Validate Debian Build Environment",
+    "Validate Dependencies",
+    "Prepare Build Workspace",
+    "Bootstrap Debian Base",
+    "Configure Debian Packages",
+    "Configure Kernel",
+    "Apply System Configuration",
+    "Apply HENU Branding",
+    "Configure Desktop",
+    "Build/Install HENU Components",
+    "Configure Bootloader",
+    "Configure Live System",
+    "Build ISO",
+    "Verify ISO",
+    "Boot Test",
+    "Generate Checksums"
+  ],
+  "artifacts": {
+    "iso": "/home/vboxuser/Desktop/henuiso/HENU OS 3.0/HENU-OS/build/iso/henu-os-3.0.0-alpha.1-amd64.iso"
+  },
+  "errors": [],
+  "base_distribution": "Debian GNU/Linux 13 (Trixie)",
+  "architecture": "amd64",
+  "build_engine_version": "3.0.0"
+}

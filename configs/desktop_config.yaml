@@ -1,0 +1,16 @@
+# HENU OS 3.0 — Desktop Settings Configuration
+# Version: 3.0.0-alpha.1
+# Base: GNOME 47 / Debian 13 (Trixie)
+
+desktop:
+  environment: "gnome"
+  session: "gnome-wayland" # "gnome-wayland" (default) | "gnome-xorg"
+  theme_name: "Colloid-Dark"
+  icon_theme: "HENU-Icons"
+  cursor_theme: "XCursor-pro"
+  font_name: "Inter 11"
+  mono_font_name: "Libertinus Mono 10"
+  scaling_factor: 1.0
+  panel_position: "bottom"
+  hot_corners: false
+  dark_mode: true

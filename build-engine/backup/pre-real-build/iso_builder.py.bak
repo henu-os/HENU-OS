@@ -1,0 +1,27 @@
+"""
+HENU OS 3.0 — Build Engine
+File: src/modules/iso_builder.py
+Purpose: Packages bootable hybrid ISO filesystem with UEFI and BIOS bootloaders.
+"""
+
+from __future__ import annotations
+import os
+from src.models.build_context import BuildContext
+from src.models.pipeline_stage import ILogger
+
+
+class ISOBuilder:
+    """Manages final bootable hybrid ISO image creation via xorriso / live-build."""
+
+    def __init__(self, workspace_root: str, logger: ILogger) -> None:
+        self._workspace = os.path.abspath(workspace_root)
+        self._logger = logger
+
+    def build_iso(self, context: BuildContext) -> str:
+        release = context.config.get("release", {})
+        iso_name = release.get("iso_name", "henu-os-3.0.0-alpha.1-amd64.iso")
+        iso_path = os.path.join(self._workspace, "build", "iso", iso_name)
+        
+        self._logger.info(f"Target ISO Artifact: {iso_path}")
+        context.set_artifact("iso", iso_path)
+        return iso_path

@@ -1,0 +1,40 @@
+# HENU OS 3.0 — Master Build Configuration
+# Version: 3.0.0-alpha.1
+# Base Distribution: Debian GNU/Linux 13 (Trixie)
+
+distribution:
+  name: "Debian"
+  codename: "trixie"
+  suite: "stable"
+  version: "13"
+  architecture: "amd64"
+  mirror_url: "http://deb.debian.org/debian"
+  security_mirror_url: "http://deb.debian.org/debian-security"
+
+build_options:
+  toolchain: "live-build" # Primary ISO generator
+  use_cache: true
+  clean_workspace: false
+  multithreaded: true
+  jobs: 4
+  offline_mode: false
+  enable_qemu_test: true
+
+configs:
+  debian_config: "configs/debian_config.yaml"
+  desktop_config: "configs/desktop_config.yaml"
+  branding_config: "configs/branding_config.yaml"
+  package_config: "configs/package_config.yaml"
+  kernel_config: "configs/kernel_config.yaml"
+  installer_config: "configs/installer_config.yaml"
+  testing_config: "configs/testing_config.yaml"
+  security_config: "configs/security_config.yaml"
+  release_config: "configs/release_config.yaml"
+
+paths:
+  build_root: "build/"
+  output_dir: "build/iso/"
+  cache_dir: "build/cache/"
+  log_dir: "build/logs/"
+  chroot_dir: "build/live-build/chroot/"
+  branding_package_path: "branding-package/"

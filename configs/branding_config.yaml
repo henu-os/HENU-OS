@@ -1,0 +1,105 @@
+# HENU OS 3.0 — Branding Configuration
+# File: configs/branding_config.yaml
+# Purpose: Define visual identity asset paths, default theme selections, and sound mappings.
+#          All source assets originate from the immutable master asset library.
+
+branding:
+  os_name: "HENU OS"
+  os_codename: "Antigravity"
+  os_tagline: "Secure by Design. Built for Everyone."
+  version: "3.0.0-alpha.1"
+
+  # Master Source Asset Directory (Immutable)
+  source_asset_library: "H:/HENU-os/HENU OS 3.0/Branding"
+
+  # ---------------------------------------------------------------- #
+  # Active Default Assets (Used by build engine and installer)       #
+  # ---------------------------------------------------------------- #
+  active_defaults:
+    # Logos & Wordmarks
+    logo_main: "branding/logos/primary/henu.png"
+    logo_login_primary: "branding/icons/HEKO.png"
+    logo_login_secondary: "branding/icons/SARDU.png"
+    wordmark: "branding/logos/wordmark/henu-word (4).png"
+
+    # Wallpapers
+    wallpaper_first_time_user: "branding/wallpapers/official/extra [no fix dimension]/wallpapers (30).png"
+    wallpaper_dark_theme_default: "branding/wallpapers/official/extra [no fix dimension]/wallpapers (14).png"
+    wallpaper_light_theme_default: "branding/wallpapers/official/fhd/1920×1080 (6).png"
+    wallpaper_lockscreen: "branding/wallpapers/lockscreen/lockscreen (3).png"
+    wallpaper_login: "branding/wallpapers/login/login (5).png"
+    wallpaper_splash_fallback: "branding/wallpapers/plymouth/splash-background/1920 x 1080.png"
+    wallpaper_premium_user: "branding/wallpapers/official/fhd/1920×1080 (17).png"
+
+    # Themes & Styles
+    gtk_theme: "Colloid-gtk-theme"
+    gtk_theme_source: "branding/themes/Colloid-gtk-theme-main.zip"
+    gtk_upstream_url: "https://github.com/vinceliuice/Colloid-gtk-theme"
+
+    cursor_theme: "XCursor-pro"
+    cursor_theme_source: "branding/cursor/XCursor-pro-main.zip"
+    cursor_upstream_url: "https://github.com/ful1e5/XCursor-pro"
+
+    gdm_login_theme: "Ocean-blue-GDM3"
+    gdm_theme_source: "branding/gdm/Ocean-blue-GDM3-master [main-login-theme].zip"
+    gdm_upstream_url: "https://github.com/taeven/Ocean-blue-GDM3"
+
+    grub_boot_theme: "Zzz-GRUB-Theme"
+    grub_theme_source: "branding/grub/Zzz-GRUB-Theme-main.zip"
+    grub_upstream_url: "https://github.com/jsthope/Zzz-GRUB-Theme"
+
+    plymouth_theme: "PlymouthTheme-Cat"
+    plymouth_theme_source: "branding/plymouth/PlymouthTheme-Cat-master.zip"
+    plymouth_upstream_url: "https://github.com/krishnan793/PlymouthTheme-Cat"
+
+    # Fonts
+    font_primary_mono: "branding/fonts/Libertinus_Mono.zip"
+    font_secondary_display: "branding/fonts/Revalia.zip"
+
+    # System Sounds
+    sounds:
+      alert: "branding/Sound/Alert.wav"
+      assistant_on: "branding/Sound/HENU Assisten ON.wav"
+      assistant_off: "branding/Sound/HENU Assisten OFF.wav"
+      notification: "branding/Sound/Notification.mp3"
+      notify_alt: "branding/Sound/notify.mp3"
+      system_startup: "branding/Sound/System start.mp3"
+      system_shutdown: "branding/Sound/system turn off.mp3"
+
+    # Boot & Startup Animations
+    animations:
+      startup_light: "branding/Animations/starting for light theme.mp4"
+      startup_dark: "branding/Animations/starting for dark theme.mp4"
+
+  # ---------------------------------------------------------------- #
+  # Color Palette & Typography Tokens                                #
+  # ---------------------------------------------------------------- #
+  colors:
+    primary:        "#4f46e5"   # Indigo — core accent
+    secondary:      "#06b6d4"   # Cyan — auxiliary accent
+    background:     "#0b0f19"   # Deep dark background
+    surface:        "#131929"   # Card / panel background
+    text_primary:   "#f1f5f9"   # Primary text (light)
+    text_secondary: "#94a3b8"   # Muted text
+    success:        "#22c55e"   # Green
+    warning:        "#f59e0b"   # Amber
+    error:          "#ef4444"   # Red
+    border:         "#1e2a3a"   # Border divider
+
+  fonts:
+    ui_font:      "Inter, system-ui, sans-serif"
+    mono_font:    "Libertinus Mono, monospace"
+    display_font: "Revalia, sans-serif"
+
+  # ---------------------------------------------------------------- #
+  # System Target Deployment Paths                                   #
+  # ---------------------------------------------------------------- #
+  target_paths:
+    backgrounds: "/usr/share/backgrounds/henu"
+    plymouth:    "/usr/share/plymouth/themes"
+    grub:        "/boot/grub/themes"
+    themes:      "/usr/share/themes"
+    icons:       "/usr/share/icons"
+    fonts:       "/usr/share/fonts/henu"
+    sounds:      "/usr/share/sounds/henu"
+    gdm:         "/etc/gdm3"

@@ -1,0 +1,14 @@
+name: example_plugin
+version: 1.0.0
+author: HENU OS Team
+priority: 50
+enabled: false
+dependencies:
+  - core >= 3.0.0
+hooks:
+  - initialize
+  - before_build
+  - after_packages
+  - before_iso
+  - after_release
+  - cleanup

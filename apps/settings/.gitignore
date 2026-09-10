@@ -1,0 +1,13 @@
+# Local application build files and caches
+bin/
+obj/
+dist/
+build/
+*.log
+*.tmp
+node_modules/
+__pycache__/
+*.pyc
+.vs/
+.vscode/
+.DS_Store

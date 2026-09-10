@@ -1,0 +1,37 @@
+# HENU OS 3.0 Git Ignore configuration
+# Version: 3.0.0-alpha.1
+
+# Build caches & directories
+build/cache/
+build/logs/
+build/output/
+build/artifacts/
+build/packages/
+build/iso/*.iso
+
+# Temporary files
+*.tmp
+*.log
+.DS_Store
+Thumbs.db
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+
+# Development tooling
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+.gemini/
+.agents/
+
+# Package manager outputs
+node_modules/
+__pycache__/
+*.pyc
+
+# Local OS files
+lost+found/

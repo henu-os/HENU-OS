@@ -1,0 +1,13 @@
+# HENU OS 3.0 — Release Configuration
+# Version: 3.0.0-alpha.1
+# Base Distribution: Debian 13 (Trixie)
+
+release:
+  version: "3.0.0-alpha.1"
+  channel: "alpha"
+  codename: "Antigravity"
+  base_distribution: "Debian 13 (Trixie)"
+  architecture: "amd64"
+  iso_name: "henu-os-3.0.0-alpha.1-amd64.iso"
+  volume_id: "HENU_OS_3_0_0"
+  compression: "xz"

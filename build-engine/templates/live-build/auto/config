@@ -1,0 +1,26 @@
+#!/bin/sh
+# Debian Live-Build Bootstrap Auto Configuration for HENU OS 3.0
+# Base: Debian 13 (Trixie)
+
+set -e
+
+lb config noauto \
+    --mode debian \
+    --distribution trixie \
+    --architectures amd64 \
+    --linux-flavours amd64 \
+    --linux-packages linux-image \
+    --archive-areas "main contrib non-free non-free-firmware" \
+    --mirror-bootstrap "http://deb.debian.org/debian" \
+    --mirror-binary "http://deb.debian.org/debian" \
+    --security true \
+    --updates true \
+    --bootloader "syslinux,grub-efi" \
+    --binary-images "iso-hybrid" \
+    --iso-application "HENU OS 3.0" \
+    --iso-publisher "HENU OS Core Team <dev@henu-os.org>" \
+    --iso-volume "HENU_OS_3_0_0" \
+    --memtest none \
+    --win32-loader false \
+    --compression xz \
+    "${@}"

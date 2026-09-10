@@ -1,0 +1,33 @@
+{
+  "build_id": "henu-1784526425",
+  "build_profile": "development",
+  "git_commit": "",
+  "config_hash": "0b3271829ca8f92ae381c5ce5dea9cfc",
+  "start_time": 1784526425.5400155,
+  "elapsed_seconds": 0.55,
+  "stages_completed": [
+    "Read Config",
+    "Configuration Validation",
+    "Environment Validation",
+    "Prepare Workspace",
+    "Create Build Context",
+    "Install Packages",
+    "Apply Branding",
+    "Configure Desktop",
+    "Deploy HENU Components",
+    "Create ISO",
+    "Verify",
+    "Generate Checksums"
+  ],
+  "artifacts": {
+    "iso": "H:\\HENU-os\\HENU OS 3.0\\HENU-OS\\build-engine\\artifacts\\iso\\HENU-OS-3.0.0-alpha.1-x86_64.iso"
+  },
+  "errors": [],
+  "fedora_version": "unknown",
+  "kernel_version": "unknown",
+  "package_count": 0,
+  "iso_checksum": "",
+  "build_host": "HENU",
+  "os_version": "3.0.0-alpha.1",
+  "architecture": "x86_64"
+}

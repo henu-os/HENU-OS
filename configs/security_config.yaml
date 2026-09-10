@@ -1,0 +1,31 @@
+# HENU OS 3.0 — Security Configuration
+# File: configs/security_config.yaml
+# Purpose: Define GPG release signing, APT repository key policies, and hardening flags.
+
+security:
+  gpg_signing_enabled: false
+  gpg_key_id: ""
+  gpg_key_email: "security@henu-os.org"
+
+  # Debian APT Keyring Signature Enforcement
+  require_repo_gpg_check: true
+  allowed_repos:
+    - "debian"
+    - "debian-security"
+    - "debian-updates"
+    - "henu-local"
+
+  # System Hardening
+  apparmor_enabled: true
+  selinux_mode: "disabled" # AppArmor is native and standard on Debian
+
+  kernel_hardening_flags:
+    - "spectre_v2=on"
+    - "spec_store_bypass_disable=on"
+    - "page_poison=1"
+    - "slub_debug=FZP"
+
+  file_integrity:
+    generate_sha256: true
+    generate_md5: true
+    enforce_reproducible_checksums: false

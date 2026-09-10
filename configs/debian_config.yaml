@@ -1,0 +1,45 @@
+# HENU OS 3.0 — Debian Base & Repository Configuration
+# File: configs/debian_config.yaml
+# Purpose: Define Debian 13 (Trixie) bootstrapping, suite, mirrors, and APT preferences.
+
+debian:
+  base_distribution: "debian"
+  codename: "trixie"
+  suite: "testing"
+  version: "13"
+  architecture: "amd64"
+  
+  bootstrap:
+    tool: "debootstrap"
+    variant: "minbase"
+    components:
+      - "main"
+      - "contrib"
+      - "non-free"
+      - "non-free-firmware"
+    mirror_url: "http://deb.debian.org/debian"
+    security_mirror_url: "http://deb.debian.org/debian-security"
+    keyring: "/usr/share/keyrings/debian-archive-keyring.gpg"
+
+  apt:
+    enable_https: true
+    install_recommends: false
+    install_suggests: false
+    clean_cache_after_build: true
+    trusted_keys_dir: "/etc/apt/trusted.gpg.d"
+    sources_list:
+      - "deb http://deb.debian.org/debian trixie main contrib non-free non-free-firmware"
+      - "deb http://deb.debian.org/debian-security trixie-security main contrib non-free non-free-firmware"
+      - "deb http://deb.debian.org/debian trixie-updates main contrib non-free non-free-firmware"
+
+  live_build:
+    mode: "debian"
+    system: "live"
+    initramfs: "live-boot"
+    initsystem: "systemd"
+    memtest: "none"
+    win32_loader: false
+    binary_images: "iso-hybrid"
+    bootloader: "syslinux,grub-efi"
+    compression: "xz"
+    security: true

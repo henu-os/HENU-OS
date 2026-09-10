@@ -1,0 +1,26 @@
+---
+componentName: henu
+
+strings:
+    productName:         "HENU OS"
+    shortProductName:    "HENU"
+    version:             "3.0"
+    shortVersion:        "3.0"
+    versionedName:       "HENU OS 3.0"
+    shortVersionedName:  "HENU OS 3.0"
+    bootloaderEntryName: "HENU OS 3.0"
+    productUrl:          "https://henu-os.org"
+    supportUrl:          "https://henu-os.org/support"
+    knownIssuesUrl:      "https://henu-os.org/issues"
+    releaseNotesUrl:     "https://henu-os.org/notes"
+
+images:
+    productLogo:         "logo.png"
+    productIcon:         "icon.png"
+    productWelcome:      "welcome.png"
+
+style:
+   sidebar: "#0b0f19"
+   sidebarText: "#FFFFFF"
+   sidebarTextSelect: "#4f46e5"
+   sidebarTextHighlight: "#06b6d4"

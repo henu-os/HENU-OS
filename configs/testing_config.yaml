@@ -1,0 +1,31 @@
+# HENU OS 3.0 — Testing & Verification Configuration
+# File: configs/testing_config.yaml
+# Purpose: Define automated QEMU boot test parameters and manual test criteria.
+
+testing:
+  qemu:
+    enabled: true
+    binary: "qemu-system-x86_64"
+    enable_kvm: true
+    memory_mb: 4096
+    cpu_cores: 2
+    uefi_boot: true
+    ovmf_bios_path: "/usr/share/OVMF/OVMF_CODE.fd"
+    timeout_seconds: 120
+    headless: true
+    vnc_display: ":1"
+
+  verification_criteria:
+    min_iso_size_mb: 1000
+    max_iso_size_mb: 4500
+    require_hybrid_mbr: true
+    require_efi_boot: true
+    require_sha256_checksum: true
+    require_manifest: true
+
+  manual_checklist:
+    - "GNOME shell reaches desktop session"
+    - "HENU wallpaper loads by default"
+    - "Plymouth boot animation displays correctly"
+    - "NetworkManager connects to interfaces"
+    - "HENU default applications launch without missing library errors"

@@ -1,0 +1,38 @@
+# HENU OS 3.0 — Installer Subsystem Configuration
+# File: configs/installer_config.yaml
+# Purpose: Define installer options, backend selection, and partitioning presets.
+
+installer:
+  default_engine: "calamares" # "calamares" | "debian-installer"
+
+  calamares:
+    package_name: "calamares"
+    settings_path: "installer/calamares/settings.conf"
+    branding_dir: "installer/calamares/branding/henu"
+    modules:
+      - welcome
+      - locale
+      - keyboard
+      - partition
+      - users
+      - summary
+      - exec
+      - finished
+
+  partitioning:
+    default_filesystem: "btrfs" # "btrfs" | "ext4"
+    enable_swap: true
+    swap_size_mb: 4096
+    enable_luks_encryption: true
+    default_mount_points:
+      - mount: "/"
+        subvolume: "@"
+      - mount: "/home"
+        subvolume: "@home"
+      - mount: "/.snapshots"
+        subvolume: "@snapshots"
+
+  desktop_integration:
+    create_desktop_shortcut: true
+    shortcut_name: "Install HENU OS 3.0.desktop"
+    auto_launch: false

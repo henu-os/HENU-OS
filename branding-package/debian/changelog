@@ -1,0 +1,6 @@
+henu-branding (3.0.0-1) trixie; urgency=medium
+
+  * Initial Debian packaging for HENU OS 3.0 (Debian 13 Trixie Base).
+  * Injected default dark/light themes, Plymouth animation, GRUB, and sounds.
+
+ -- HENU OS Core Team <dev@henu-os.org>  Mon, 20 Jul 2026 12:00:00 +0000

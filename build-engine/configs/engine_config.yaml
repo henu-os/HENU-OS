@@ -1,0 +1,27 @@
+# HENU Build Engine Internal Configuration
+# Version: 3.0.0-alpha.1
+# Base: Debian GNU/Linux 13 (Trixie)
+
+engine:
+  name: "HENU Build Orchestrator"
+  max_runtime_seconds: 14400 # 4 hours max build time
+  temp_dir: "/var/tmp/henu-build/"
+  
+tool_paths:
+  live_build: "/usr/bin/lb"
+  debootstrap: "/usr/sbin/debootstrap"
+  apt_get: "/usr/bin/apt-get"
+  dpkg: "/usr/bin/dpkg"
+  xorriso: "/usr/bin/xorriso"
+
+validation_rules:
+  minimum_free_space_gb: 30
+  require_root: true
+  allowed_architectures:
+    - "amd64"
+
+logging:
+  log_format: "%(asctime)s [%(levelname)s] (%(filename)s:%(lineno)d) - %(message)s"
+  console_level: "INFO"
+  file_level: "DEBUG"
+  keep_logs_count: 10

@@ -1,0 +1,82 @@
+#!/bin/sh
+set -eu
+
+echo
+echo "============================================================"
+echo " HENU OS — FINAL CHROOT BRANDING"
+echo "============================================================"
+
+# ------------------------------------------------------------
+# GSettings / dconf
+# ------------------------------------------------------------
+
+if command -v glib-compile-schemas >/dev/null 2>&1; then
+    glib-compile-schemas /usr/share/glib-2.0/schemas || true
+fi
+
+if command -v dconf >/dev/null 2>&1; then
+    dconf update || true
+fi
+
+
+# ------------------------------------------------------------
+# Font cache
+# ------------------------------------------------------------
+
+if command -v fc-cache >/dev/null 2>&1; then
+    fc-cache -f /usr/share/fonts/henu || true
+fi
+
+
+# ------------------------------------------------------------
+# Icon cache
+# ------------------------------------------------------------
+
+if command -v gtk-update-icon-cache >/dev/null 2>&1; then
+
+    for theme in \
+        /usr/share/icons/HENU-Icons \
+        /usr/share/icons/hicolor
+    do
+        if [ -d "$theme" ]; then
+            gtk-update-icon-cache -f -t "$theme" || true
+        fi
+    done
+
+fi
+
+
+# ------------------------------------------------------------
+# Plymouth
+# ------------------------------------------------------------
+
+if command -v plymouth-set-default-theme >/dev/null 2>&1; then
+    if [ -d /usr/share/plymouth/themes/henu ]; then
+        plymouth-set-default-theme henu -R || true
+    fi
+fi
+
+
+# ------------------------------------------------------------
+# Host identity
+# ------------------------------------------------------------
+
+printf '%s\n' 'HENU' > /etc/hostname
+
+# Ensure machine does not retain a Debian live-build generated
+# hostname at build time.
+rm -f /etc/ssh/ssh_host_* 2>/dev/null || true
+
+
+# ------------------------------------------------------------
+# GNOME cache
+# ------------------------------------------------------------
+
+if [ -d /usr/share/glib-2.0/schemas ]; then
+    glib-compile-schemas /usr/share/glib-2.0/schemas || true
+fi
+
+
+echo
+echo " HENU OS final branding hook complete."
+echo

@@ -1,0 +1,395 @@
+{
+  "config_hash": "37188f2ced897654c5c2187665841d59",
+  "profile": "development",
+  "config": {
+    "distribution": {
+      "name": "Debian",
+      "codename": "trixie",
+      "suite": "testing",
+      "version": "13",
+      "architecture": "amd64",
+      "mirror_url": "http://deb.debian.org/debian",
+      "security_mirror_url": "http://deb.debian.org/debian-security"
+    },
+    "build_options": {
+      "toolchain": "live-build",
+      "use_cache": true,
+      "clean_workspace": false,
+      "multithreaded": true,
+      "jobs": 4,
+      "offline_mode": false,
+      "enable_qemu_test": true
+    },
+    "configs": {
+      "debian_config": "configs/debian_config.yaml",
+      "desktop_config": "configs/desktop_config.yaml",
+      "branding_config": "configs/branding_config.yaml",
+      "package_config": "configs/package_config.yaml",
+      "kernel_config": "configs/kernel_config.yaml",
+      "installer_config": "configs/installer_config.yaml",
+      "testing_config": "configs/testing_config.yaml",
+      "security_config": "configs/security_config.yaml",
+      "release_config": "configs/release_config.yaml"
+    },
+    "paths": {
+      "build_root": "build/",
+      "output_dir": "build/iso/",
+      "cache_dir": "build/cache/",
+      "log_dir": "build/logs/",
+      "chroot_dir": "build/live-build/chroot/",
+      "branding_package_path": "branding-package/"
+    },
+    "debian": {
+      "base_distribution": "debian",
+      "codename": "trixie",
+      "suite": "testing",
+      "version": "13",
+      "architecture": "amd64",
+      "bootstrap": {
+        "tool": "debootstrap",
+        "variant": "minbase",
+        "components": [
+          "main",
+          "contrib",
+          "non-free",
+          "non-free-firmware"
+        ],
+        "mirror_url": "http://deb.debian.org/debian",
+        "security_mirror_url": "http://deb.debian.org/debian-security",
+        "keyring": "/usr/share/keyrings/debian-archive-keyring.gpg"
+      },
+      "apt": {
+        "enable_https": true,
+        "install_recommends": false,
+        "install_suggests": false,
+        "clean_cache_after_build": true,
+        "trusted_keys_dir": "/etc/apt/trusted.gpg.d",
+        "sources_list": [
+          "deb http://deb.debian.org/debian trixie main contrib non-free non-free-firmware",
+          "deb http://deb.debian.org/debian-security trixie-security main contrib non-free non-free-firmware",
+          "deb http://deb.debian.org/debian trixie-updates main contrib non-free non-free-firmware"
+        ]
+      },
+      "live_build": {
+        "mode": "debian",
+        "system": "live",
+        "initramfs": "live-boot",
+        "initsystem": "systemd",
+        "memtest": "none",
+        "win32_loader": false,
+        "binary_images": "iso-hybrid",
+        "bootloader": "syslinux,grub-efi",
+        "compression": "xz",
+        "security": true
+      }
+    },
+    "desktop": {
+      "environment": "gnome",
+      "session": "gnome-wayland",
+      "theme_name": "Colloid-Dark",
+      "icon_theme": "HENU-Icons",
+      "cursor_theme": "XCursor-pro",
+      "font_name": "Inter 11",
+      "mono_font_name": "Libertinus Mono 10",
+      "scaling_factor": 1.0,
+      "panel_position": "bottom",
+      "hot_corners": false,
+      "dark_mode": true
+    },
+    "branding": {
+      "os_name": "HENU OS",
+      "os_codename": "Antigravity",
+      "os_tagline": "Secure by Design. Built for Everyone.",
+      "version": "3.0.0-alpha.1",
+      "source_asset_library": "H:/HENU-os/HENU OS 3.0/Branding",
+      "active_defaults": {
+        "logo_main": "branding/logos/primary/henu.png",
+        "logo_login_primary": "branding/icons/HEKO.png",
+        "logo_login_secondary": "branding/icons/SARDU.png",
+        "wordmark": "branding/logos/wordmark/henu-word (4).png",
+        "wallpaper_first_time_user": "branding/wallpapers/official/extra [no fix dimension]/wallpapers (30).png",
+        "wallpaper_dark_theme_default": "branding/wallpapers/official/extra [no fix dimension]/wallpapers (14).png",
+        "wallpaper_light_theme_default": "branding/wallpapers/official/fhd/1920×1080 (6).png",
+        "wallpaper_lockscreen": "branding/wallpapers/lockscreen/lockscreen (3).png",
+        "wallpaper_login": "branding/wallpapers/login/login (5).png",
+        "wallpaper_splash_fallback": "branding/wallpapers/plymouth/splash-background/1920 x 1080.png",
+        "wallpaper_premium_user": "branding/wallpapers/official/fhd/1920×1080 (17).png",
+        "gtk_theme": "Colloid-gtk-theme",
+        "gtk_theme_source": "branding/Themes/Colloid-gtk-theme-main.zip",
+        "gtk_upstream_url": "https://github.com/vinceliuice/Colloid-gtk-theme",
+        "cursor_theme": "XCursor-pro",
+        "cursor_theme_source": "branding/Cursor/XCursor-pro-main.zip",
+        "cursor_upstream_url": "https://github.com/ful1e5/XCursor-pro",
+        "gdm_login_theme": "Ocean-blue-GDM3",
+        "gdm_theme_source": "branding/GDM/Ocean-blue-GDM3-master [main-login-theme].zip",
+        "gdm_upstream_url": "https://github.com/taeven/Ocean-blue-GDM3",
+        "grub_boot_theme": "Zzz-GRUB-Theme",
+        "grub_theme_source": "branding/Grub/Zzz-GRUB-Theme-main.zip",
+        "grub_upstream_url": "https://github.com/jsthope/Zzz-GRUB-Theme",
+        "plymouth_theme": "PlymouthTheme-Cat",
+        "plymouth_theme_source": "branding/PlyMouth/PlymouthTheme-Cat-master.zip",
+        "plymouth_upstream_url": "https://github.com/krishnan793/PlymouthTheme-Cat",
+        "font_primary_mono": "branding/Fonts/Libertinus_Mono.zip",
+        "font_secondary_display": "branding/Fonts/Revalia.zip",
+        "sounds": {
+          "alert": "branding/Sound/Alert.wav",
+          "assistant_on": "branding/Sound/HENU Assisten ON.wav",
+          "assistant_off": "branding/Sound/HENU Assisten OFF.wav",
+          "notification": "branding/Sound/Notification.mp3",
+          "notify_alt": "branding/Sound/notify.mp3",
+          "system_startup": "branding/Sound/System start.mp3",
+          "system_shutdown": "branding/Sound/system turn off.mp3"
+        },
+        "animations": {
+          "startup_light": "branding/Animations/starting for light theme.mp4",
+          "startup_dark": "branding/Animations/starting for dark theme.mp4"
+        }
+      },
+      "colors": {
+        "primary": "#4f46e5",
+        "secondary": "#06b6d4",
+        "background": "#0b0f19",
+        "surface": "#131929",
+        "text_primary": "#f1f5f9",
+        "text_secondary": "#94a3b8",
+        "success": "#22c55e",
+        "warning": "#f59e0b",
+        "error": "#ef4444",
+        "border": "#1e2a3a"
+      },
+      "fonts": {
+        "ui_font": "Inter, system-ui, sans-serif",
+        "mono_font": "Libertinus Mono, monospace",
+        "display_font": "Revalia, sans-serif"
+      },
+      "target_paths": {
+        "backgrounds": "/usr/share/backgrounds/henu",
+        "plymouth": "/usr/share/plymouth/themes",
+        "grub": "/boot/grub/themes",
+        "themes": "/usr/share/themes",
+        "icons": "/usr/share/icons",
+        "fonts": "/usr/share/fonts/henu",
+        "sounds": "/usr/share/sounds/henu",
+        "gdm": "/etc/gdm3"
+      }
+    },
+    "package_groups": {
+      "base_system": [
+        "systemd",
+        "systemd-sysv",
+        "udev",
+        "dbus",
+        "sudo",
+        "curl",
+        "wget",
+        "ca-certificates",
+        "gnupg",
+        "live-boot",
+        "live-config",
+        "live-config-systemd",
+        "policykit-1",
+        "locales"
+      ],
+      "desktop_environment": [
+        "gnome-core",
+        "gnome-shell",
+        "gdm3",
+        "gnome-terminal",
+        "nautilus",
+        "network-manager-gnome",
+        "pipewire",
+        "pipewire-pulse",
+        "wireplumber",
+        "dconf-cli",
+        "dconf-gsettings-backend"
+      ],
+      "developer_tools": [
+        "build-essential",
+        "gcc",
+        "make",
+        "git",
+        "python3",
+        "python3-dev",
+        "python3-pip",
+        "cmake",
+        "debhelper",
+        "dpkg-dev"
+      ],
+      "cybersecurity_tools": [
+        "nmap",
+        "tshark",
+        "tcpdump",
+        "ufw",
+        "nftables"
+      ],
+      "ai_runtime": [
+        "python3-numpy",
+        "python3-scipy",
+        "libopenblas0"
+      ],
+      "system_utilities": [
+        "htop",
+        "tmux",
+        "tar",
+        "bash-completion",
+        "rsync",
+        "pciutils",
+        "usbutils"
+      ],
+      "hardware_drivers": [
+        "firmware-linux",
+        "firmware-linux-nonfree",
+        "firmware-iwlwifi",
+        "firmware-misc-nonfree",
+        "mesa-va-drivers",
+        "libgl1-mesa-dri"
+      ],
+      "desktop_applications": [
+        "firefox-esr"
+      ]
+    },
+    "kernel": {
+      "strategy": "debian_package",
+      "debian": {
+        "image_package": "linux-image-amd64",
+        "headers_package": "linux-headers-amd64",
+        "initramfs_generator": "initramfs-tools",
+        "include_extra_modules": true
+      },
+      "boot_parameters": [
+        "quiet",
+        "splash",
+        "boot=live",
+        "components",
+        "locales=en_US.UTF-8",
+        "timezone=UTC"
+      ],
+      "hardware": {
+        "enable_microcode_amd": true,
+        "enable_microcode_intel": true,
+        "firmware_packages": [
+          "amd64-microcode",
+          "intel-microcode",
+          "firmware-linux-free",
+          "firmware-linux-nonfree"
+        ]
+      },
+      "custom_build": {
+        "enabled": false,
+        "source_tarball": "",
+        "config_file": "kernel/config/henu-default.config",
+        "patches_dir": "kernel/patches",
+        "modules_dir": "kernel/modules",
+        "build_script": "kernel/scripts/build_kernel.sh"
+      }
+    },
+    "installer": {
+      "default_engine": "calamares",
+      "calamares": {
+        "package_name": "calamares",
+        "settings_path": "installer/calamares/settings.conf",
+        "branding_dir": "installer/calamares/branding/henu",
+        "modules": [
+          "welcome",
+          "locale",
+          "keyboard",
+          "partition",
+          "users",
+          "summary",
+          "exec",
+          "finished"
+        ]
+      },
+      "partitioning": {
+        "default_filesystem": "btrfs",
+        "enable_swap": true,
+        "swap_size_mb": 4096,
+        "enable_luks_encryption": true,
+        "default_mount_points": [
+          {
+            "mount": "/",
+            "subvolume": "@"
+          },
+          {
+            "mount": "/home",
+            "subvolume": "@home"
+          },
+          {
+            "mount": "/.snapshots",
+            "subvolume": "@snapshots"
+          }
+        ]
+      },
+      "desktop_integration": {
+        "create_desktop_shortcut": true,
+        "shortcut_name": "Install HENU OS 3.0.desktop",
+        "auto_launch": false
+      }
+    },
+    "testing": {
+      "qemu": {
+        "enabled": true,
+        "binary": "qemu-system-x86_64",
+        "enable_kvm": true,
+        "memory_mb": 4096,
+        "cpu_cores": 2,
+        "uefi_boot": true,
+        "ovmf_bios_path": "/usr/share/OVMF/OVMF_CODE.fd",
+        "timeout_seconds": 120,
+        "headless": true,
+        "vnc_display": ":1"
+      },
+      "verification_criteria": {
+        "min_iso_size_mb": 1000,
+        "max_iso_size_mb": 4500,
+        "require_hybrid_mbr": true,
+        "require_efi_boot": true,
+        "require_sha256_checksum": true,
+        "require_manifest": true
+      },
+      "manual_checklist": [
+        "GNOME shell reaches desktop session",
+        "HENU wallpaper loads by default",
+        "Plymouth boot animation displays correctly",
+        "NetworkManager connects to interfaces",
+        "HENU default applications launch without missing library errors"
+      ]
+    },
+    "security": {
+      "gpg_signing_enabled": false,
+      "gpg_key_id": "",
+      "gpg_key_email": "security@henu-os.org",
+      "require_repo_gpg_check": true,
+      "allowed_repos": [
+        "debian",
+        "debian-security",
+        "debian-updates",
+        "henu-local"
+      ],
+      "apparmor_enabled": true,
+      "selinux_mode": "disabled",
+      "kernel_hardening_flags": [
+        "spectre_v2=on",
+        "spec_store_bypass_disable=on",
+        "page_poison=1",
+        "slub_debug=FZP"
+      ],
+      "file_integrity": {
+        "generate_sha256": true,
+        "generate_md5": true,
+        "enforce_reproducible_checksums": false
+      }
+    },
+    "release": {
+      "version": "3.0.0-alpha.1",
+      "channel": "alpha",
+      "codename": "Antigravity",
+      "base_distribution": "Debian 13 (Trixie)",
+      "architecture": "amd64",
+      "iso_name": "henu-os-3.0.0-alpha.1-amd64.iso",
+      "volume_id": "HENU_OS_3_0_0",
+      "compression": "xz"
+    },
+    "build_profile": "development"
+  }
+}

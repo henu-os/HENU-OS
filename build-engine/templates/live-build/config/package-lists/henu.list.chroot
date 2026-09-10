@@ -1,0 +1,37 @@
+# HENU OS 3.0 Core Packages for Live Environment
+# Debian 13 (Trixie)
+
+# Base System
+live-boot
+live-config
+live-config-systemd
+systemd-sysv
+sudo
+locales
+curl
+wget
+ca-certificates
+gnupg
+
+# Desktop & Display
+gnome-core
+gnome-shell
+gdm3
+gnome-terminal
+nautilus
+network-manager-gnome
+pipewire
+pipewire-pulse
+wireplumber
+dconf-cli
+
+# Core Utilities
+htop
+tmux
+tar
+bash-completion
+pciutils
+usbutils
+firmware-linux
+firmware-linux-nonfree
+firmware-iwlwifi
