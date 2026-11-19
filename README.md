@@ -11,7 +11,11 @@
   <a href="#-technology-stack">Tech Stack</a> •
   <a href="https://github.com/henu-os/HENU-OS">HENU OS</a>
 </p>
-
+jobs:
+  release:
+    uses: henu-os/henu-common-actions/.github/workflows/release.yml@v1.0.0
+    permissions:
+      contents: write
 ---
 
 ## 🌐 About HENU OS
